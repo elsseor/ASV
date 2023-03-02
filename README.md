@@ -1,6 +1,6 @@
 # ASV - Skripte für die ASV
 
-1.	CreateMailList.ps1
+Programm: createMailList.ps1
 
 Beschreibung
 
@@ -13,5 +13,7 @@ Ablauf
 3)	Das Skript „createMailList.ps1“ mit der Powershell ausführen.
 4)	Im Skriptverzeichnis wird nun die Exceldatei „mail.xlsx“ erstellt.
 
-2. InstallExport.ps1
+
+
+Programm: InstallExport.ps1
 Dieses Skript muss einmalig mit Administratorrechten ausgeführt werden, damit das Export-Excel-Modul für Powershell installiert wird
