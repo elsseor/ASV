@@ -3,6 +3,7 @@
 1.	CreateMailList.ps1
 
 Beschreibung
+
 Mit diesem Programm wird aus der Betriebe-Excelliste aus der ASV eine Excelliste mit Emails und Betriebnamen erstellt, die z.B. für Serienbrief geeignet ist.
 Achtung: Einmalig muss das PowershellModul "Export-Excel" installiert werden. Das funktioniert mit dem Skript InstallExport.ps1, das mit Administratorrechten ausgeführt werden muss. Eventuell muss hier die IT der Stadt Augsburg helfen. Für das eigentliche Programm werden dann kein Administratorrechte mehr benötigt.
 
