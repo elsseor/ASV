@@ -3,7 +3,7 @@ Mit dem Skript ***createMailList.ps1*** wird aus der Betriebe-Excelliste aus der
 
 # Ablauf
 1. Aus der ASV die Betriebeliste im Excelformat exportieren
-2. Da die ASV leider noch das veraltete Excelformat verwendet, mit dem Powershell nicht umgehen kann, muss diese Datei in Excel geöffnet werden und unter dem aktuellen XLSX-Format abgespeichert und unter dem Namen ***Betriebe.xlsx*** abgespeichert werden.
+2. Da die ASV leider noch das veraltete Excelformat verwendet, mit dem die Powershell nicht umgehen kann, muss diese Datei in Excel geöffnet werden und unter dem aktuellen XLSX-Format und dem Namen ***Betriebe.xlsx*** abgespeichert werden.
 3. Die Datei in das Verzeichnis mit dem Powershellscript abspeichern.
 4. ***createMailList.ps1*** ausführen. Das Ergebnis steht in der neuen Datei ***mail.xlsx***
 
