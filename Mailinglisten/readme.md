@@ -7,6 +7,7 @@ Mit dem Skript ***createMailList.ps1*** wird aus der Betriebe-Excelliste aus der
 3. Die Datei in das Verzeichnis mit dem Powershellscript abspeichern.
 4. ***createMailList.ps1*** ausführen. Das Ergebnis steht in der neuen Datei ***mail.xlsx***
 
+Falls nur eine Mailingliste für Betriebe einzelner Klassen ierstellt werden, so müssen Sie zusätzlich aus der ASV eine Schülerliste für die entsprechendn Klassen im Excelformat exportieren, in das aktuelle Format konvertieren und im gleichen Verzeichnis wie das Skript abspeichern. Die Schülerliste muss jedoch die Spalte "Ausb. Betrieb Name1" aus der ASV enthalten. 
 
 # Installation des benötigten Moduls:
 Einmalig muss das PowershellModul "Export-Excel" installiert werden. Dazu muss man die Powershell mit Administratorrechten öffenen und den Befehl "Install-Module -Name ImportExcel" ausführen.
