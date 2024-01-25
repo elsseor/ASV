@@ -1,0 +1,1 @@
+In dieses Verzeichnis müssen die XML Dateien gespeichert werden. Das Skript verarbeitet alle XML-Dateien aus diesem Verzeichnis.
