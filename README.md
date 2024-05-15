@@ -9,3 +9,6 @@ Hier finden Sie Exportformatdateien für die ASV. Derzeit exisitiert nur die Dat
 
 # FehltageImport
 Hier finden Sie ein Powershellmodul mit dem die Abwesenheiten aus Webuntis konvertiert werden können, um sie in die ASV einzuspielen.
+
+# Installation des benötigten Moduls:
+Einmalig muss das PowershellModul "Export-Excel" installiert werden. Dazu muss man die Powershell mit Administratorrechten öffenen und den Befehl "Install-Module -Name ImportExcel" ausführen. Hinweis für Augsburger Schulen: Eventuell muss hier die IT der Stadt Augsburg helfen. Für das eigentliche Programm werden dann kein Administratorrechte mehr benötigt. Man kann der Stadt-IT auch sagen, dass sie das Modul im Profil des Users hinterlegen soll, dann funktioniert es für diesen User an allen VerwaltungsPCs. Der Pfad hierfür lautet: "\\swf10101<benutzer>\Eigene Dateien\WindowsPowerShell\Modules\ImportExcel"
