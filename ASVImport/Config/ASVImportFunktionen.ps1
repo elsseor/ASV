@@ -4,6 +4,8 @@ function ConfigFill {
     $konfessionsZuordnung = Import-Excel -Path $ConfigPath -WorksheetName Konfession
     $berufsZuordnung = Import-Excel -Path $ConfigPath -WorksheetName BerufsID
     $staatZuordnung = Import-Excel -Path $ConfigPath -WorksheetName Staatsangehoerigkeit
+    $klassenZuordnung = Import-Excel -Path $ConfigPath -WorksheetName KlassenZuweisung
+
     
     $berufMissing = @()
     $konfessionsMissing = @()
@@ -176,6 +178,7 @@ function AddContentExcelFile {
     $berufsZuordnung = Import-Excel -Path $ConfigPath -WorksheetName BerufsID
     $staatZuordnung = Import-Excel -Path $ConfigPath -WorksheetName Staatsangehoerigkeit
     $reliUnterrichtZuordnung = Import-Excel -Path $ConfigPath -WorksheetName Reliunterricht
+    $klassenZuordnung = Import-Excel -Path $ConfigPath -WorksheetName KlassenZuweisung
     
     $Myexcel = New-Object -ComObject excel.application
     $Myexcel.visible = $visibleExcel
@@ -192,7 +195,24 @@ function AddContentExcelFile {
     
         [xml] $xmlContent = Get-Content -path $xmlPath$xml -Encoding UTF8
         write-host  Bearbeite Schueler $xmlContent.myForm.azubi_familienname
-        $Sheet1.cells.item($i,1) = $klasse
+
+
+        ### Klassenzuordnung
+        # $Sheet1.cells.item($i,1) = $klasse
+        if ($klassenZuordnung.'Beruf' -contains $xmlContent.myForm.beruf_name){
+            $klasse = ($klassenZuordnung | Where-Object {$_.Beruf -eq $xmlContent.myForm.beruf_name -and $_.Ausbildungsdauer.toString() -eq "0"}).'Klasse'
+            if (($klassenZuordnung | Where-Object {$_.Beruf -eq $xmlContent.myForm.beruf_name -and $_.Ausbildungsdauer.toString() -eq $xmlContent.myform.ausbildung_dauer}).'Klasse'){
+                $klasse = ($klassenZuordnung | Where-Object {$_.Beruf -eq $xmlContent.myForm.beruf_name -and $_.Ausbildungsdauer.toString() -eq $xmlContent.myform.ausbildung_dauer}).'Klasse'
+                }
+            $Sheet1.cells.item($i,1) = $klasse
+        } else {
+            $Sheet1.cells.item($i,1) = ($klassenZuordnung | Where-Object Beruf -eq default).'Klasse'
+        }
+
+
+
+
+
         $Sheet1.cells.item($i,2) = $xmlContent.myForm.azubi_familienname
         $Sheet1.cells.item($i,3) = $xmlContent.myForm.azubi_vorname
         $Sheet1.cells.item($i,4) = $xmlContent.myForm.azubi_vorname                 # eventuell Rufname weglassen
@@ -320,7 +340,7 @@ function AddContentExcelFile {
         # $Sheet1.cells.item($i,62) = $xmlContent.myForm.'Zuzugsart'
         $Sheet1.cells.item($i,64) = $xmlContent.myForm.unternehmen_id_label
 
-        ### Ausbildungsberuf in BerufsID ï¿½ndern
+        ### Ausbildungsberuf in BerufsID ändern
         if ($berufsZuordnung.BerufsbezeichnungFormular -contains $xmlContent.myForm.beruf_name){
             $Sheet1.cells.item($i,65) = ($berufsZuordnung |Where-Object BerufsbezeichnungFormular -eq $xmlContent.myForm.beruf_name).'ASV-Berufs-ID'
         } else {
