@@ -1,7 +1,6 @@
 ############################################# Einstellungen
 # Dateinamen fuer die Exceldatei
 $outputExcelXLSX = 'ASV-Import.xlsx'
-$outputExcel = 'ASV-Import.xls'
 $visibleExcel = $false
 $klasse = "Neu"
 $zielverzeichnis = 'O:\Temp'
@@ -45,9 +44,6 @@ if(!(Test-Path $functionPath)) {
 ConfigFill
 CreateExcelFile
 AddContentExcelFile
-
-Move-Item $outputExcelXLSX $zielverzeichnis
-
 
 
 Write-Host
